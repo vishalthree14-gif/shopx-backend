@@ -1,0 +1,138 @@
+// Authentication
+// user 
+
+
+curl --location 'http://localhost:3000/api/users/login' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "email":"vishal@example.com",
+    "password":"1234"
+}'
+
+curl --location 'http://localhost:3000/api/users/signup' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "email":"ankita@example.com",
+    "password":"1234",
+    "phone":"00000000",
+    "name": "ankita",
+    "age": "54",
+    "gender":"Female"
+    
+}'
+
+
+
+// profile 
+
+//get profile
+
+curl --location 'http://localhost:3000/api/users/profile' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIiLCJlbWFpbCI6InZpc2hhbEBleGFtcGxlLmNvbSIsImlhdCI6MTc2MDY5NTg1NywiZXhwIjoxNzYwNjk5NDU3fQ.N9uHbmYwpkAXPRjYxdWe70Y3b1uQ8ME50dPj-CDXWfo'
+
+// update profile
+
+curl --location 'http://localhost:3000/api/users/updateUserProfile' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIiLCJlbWFpbCI6InZpc2hhbEBleGFtcGxlLmNvbSIsImlhdCI6MTc2MDY5NTg1NywiZXhwIjoxNzYwNjk5NDU3fQ.N9uHbmYwpkAXPRjYxdWe70Y3b1uQ8ME50dPj-CDXWfo' \
+--data-raw '{
+    "email":"ankita@example.com",
+    "phone":"1111111",
+    "name": "ankita"
+}'
+
+// update password
+
+curl --location 'http://localhost:3000/api/users/updatePassword' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIiLCJlbWFpbCI6InZpc2hhbEBleGFtcGxlLmNvbSIsImlhdCI6MTc2MDY5NTg1NywiZXhwIjoxNzYwNjk5NDU3fQ.N9uHbmYwpkAXPRjYxdWe70Y3b1uQ8ME50dPj-CDXWfo' \
+--data-raw '{
+    "email":"ankita@example.com",
+    "password": "1234",
+    "newPassword": "1234567890"
+}'
+
+
+
+// product api's
+
+curl --location 'http://localhost:3000/api/carts/addToCart' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIiLCJlbWFpbCI6InZpc2hhbEBleGFtcGxlLmNvbSIsImlhdCI6MTc2MDY5MjM2MywiZXhwIjoxNzYwNjk1OTYzfQ.-VtFnD2aOdPeSFmsn0spBffNuO2FyC00rBvx-M4IgME' \
+--header 'Content-Type: application/json' \
+--data '{
+    "user_id":"2",
+    "product_id": "5",
+    "quantity": "5"
+}'
+
+
+curl --location 'http://localhost:3000/api/carts/viewCart/2' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIiLCJlbWFpbCI6InZpc2hhbEBleGFtcGxlLmNvbSIsImlhdCI6MTc2MDY5MjM2MywiZXhwIjoxNzYwNjk1OTYzfQ.-VtFnD2aOdPeSFmsn0spBffNuO2FyC00rBvx-M4IgME' \
+--header 'Content-Type: application/json'
+
+
+curl --location 'http://localhost:3000/api/carts/cartRemoveItem/8' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIiLCJlbWFpbCI6InZpc2hhbEBleGFtcGxlLmNvbSIsImlhdCI6MTc2MDY5MjM2MywiZXhwIjoxNzYwNjk1OTYzfQ.-VtFnD2aOdPeSFmsn0spBffNuO2FyC00rBvx-M4IgME' \
+--header 'Content-Type: application/json'
+
+
+
+// cart API's 
+
+curl --location 'http://localhost:3000/api/carts/addToCart' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIiLCJlbWFpbCI6InZpc2hhbEBleGFtcGxlLmNvbSIsImlhdCI6MTc2MDY5NTg1NywiZXhwIjoxNzYwNjk5NDU3fQ.N9uHbmYwpkAXPRjYxdWe70Y3b1uQ8ME50dPj-CDXWfo' \
+--data '{
+    "user_id":"2", 
+    "product_id":"3", 
+    "quantity":"10"
+}'
+
+
+curl --location 'http://localhost:3000/api/carts/viewCart/2' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIiLCJlbWFpbCI6InZpc2hhbEBleGFtcGxlLmNvbSIsImlhdCI6MTc2MDY5NTg1NywiZXhwIjoxNzYwNjk5NDU3fQ.N9uHbmYwpkAXPRjYxdWe70Y3b1uQ8ME50dPj-CDXWfo'
+
+
+curl --location 'http://localhost:3000/api/carts/cartRemoveItem/1' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIiLCJlbWFpbCI6InZpc2hhbEBleGFtcGxlLmNvbSIsImlhdCI6MTc2MDY5NTg1NywiZXhwIjoxNzYwNjk5NDU3fQ.N9uHbmYwpkAXPRjYxdWe70Y3b1uQ8ME50dPj-CDXWfo'
+
+
+
+
+
+// add products 
+
+curl --location 'http://localhost:3000/api/products/addProduct' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NjEzODA1NzksImV4cCI6MTc2MTM4NDE3OX0.hGPA40ZY5yIGm75Du_bDBuxFBVip0WMAqqPxTjZ4PqY' \
+--data '{
+    "product_name": "Wireless Headphones",
+    "product_details": "Noise-cancelling Bluetooth headphones",
+    "product_price": 149.99,
+    "product_stock": 25,
+    "images": [
+      "https://example.com/image1.jpg",
+      "https://example.com/image2.jpg",
+      "https://example.com/image3.jpg"
+    ]
+  }'
+
+
+
+curl --location 'http://localhost:3000/api/products/getProducts?page=1000&limit=10' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NjEzODIzMjksImV4cCI6MTc2MTM4NTkyOX0.EFwB9h7wmeskwABfNVtRHwFdd1MBUuSxzs2yQN6yMQU'
+
+
+
+
+
+
+
+
+
+
+
