@@ -7,7 +7,7 @@ const app = express();
 
 
 app.use(cors({
-  origin: 'http://localhost:5173',  // React app URL
+  origin: process.env.FRONTEND_DEPLOY,  // React app URL
   credentials: true,                // 👈 must be true
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
@@ -41,6 +41,9 @@ const paymentRoutes = require('./routes/paymentRoutes');
 app.use('/api/payments', paymentRoutes);
 
 
+app.get('/', (req, res) => {
+  res.send('ShopX backend running');
+});
 
 
 // Sync database and start server
